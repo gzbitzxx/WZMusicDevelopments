@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!-- 专门用来加载属性映射文件 -->
+	<properties resource="db.properties">
+	</properties>
+	<!-- 给mybaits开启log4j的日志输出 -->
+	<settings>  
+        <setting name="logImpl" value="LOG4J"/>  
+    </settings>
+     
+     <typeAliases>
+     	<typeAlias type="com.wzmusic.bean.Admin" alias="Admin"/>
+     	<typeAlias type="com.wzmusic.bean.Article" alias="Article"/>
+     	<typeAlias type="com.wzmusic.bean.Comments" alias="Comments"/>
+     	<typeAlias type="com.wzmusic.bean.Music" alias="Music"/>
+     	<typeAlias type="com.wzmusic.bean.MusicType" alias="MusicType"/>
+     	<typeAlias type="com.wzmusic.bean.MyMusicType" alias="MyMusicType"/>
+     	<typeAlias type="com.wzmusic.bean.User" alias="User"/>
+     	<typeAlias type="com.wzmusic.bean.Page" alias="Page"/>
+     </typeAliases>
+	<!-- 以后都是用spring去集成mybatis 不用自己去编写这个配置文件-->
+	<!-- 环境配置，编写和数据的链接信息 -->
+	<environments default="development">
+		<environment id="development">
+			<!-- jdbc事务的配置 -->
+			<transactionManager type="JDBC"/>
+			<!-- 配置数据源(连接池) -->
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driver}"/>
+				<property name="url" value="${jdbc.url}"/>
+				<property name="username" value="${jdbc.username}"/>
+				<property name="password" value="${jdbc.password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- 在核心配置文件中加载sql定义文件 -->
+	<mappers>
+		<mapper resource="com/wzmusic/mapper/AdminMapper.xml"/>
+		<mapper resource="com/wzmusic/mapper/ArticleMapper.xml"/>
+		<!-- <mapper resource="com/wzmusic/mapper/CommentsMapper.xml"/>
+		<mapper resource="com/wzmusic/mapper/MusicMapper.xml"/>
+		<mapper resource="com/wzmusic/mapper/MusicTypeMapper.xml"/>
+		<mapper resource="com/wzmusic/mapper/MyMusicTypeMapper.xml"/>
+		<mapper resource="com/wzmusic/mapper/UserMapper.xml"/>
+		-->
+	</mappers>
+	
+	
+	
+</configuration>
