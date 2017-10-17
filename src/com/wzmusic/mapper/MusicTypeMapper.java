@@ -34,7 +34,7 @@ public interface MusicTypeMapper {
      * @param MusicType
      * @throws Exception
      */
-    public void updateMusicType(MusicType MusicType)throws Exception;
+    public void updateMusicType(MusicType MusicType);
     
     /**
      * 删除音乐类型

@@ -31,14 +31,14 @@ public interface MyMusicTypeMapper {
      * @param MyMusicType
      * @throws Exception
      */
-    public void insertMyMusicType(MyMusicType MyMusicType);
+    public void addMyMusicType(MyMusicType MyMusicType);
     
     /**
      * 修改我的音乐类型
      * @param MyMusicType
      * @throws Exception
      */
-    public void updateMyMusicType(MyMusicType MyMusicType)throws Exception;
+    public void updateMyMusicType(MyMusicType MyMusicType);
     
     /**
      * 删除我的音乐类型

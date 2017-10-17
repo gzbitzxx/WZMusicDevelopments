@@ -4,39 +4,39 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.wzmusic.bean.Comments;
+import com.wzmusic.bean.MusicType;
 import com.wzmusic.bean.Page;
-import com.wzmusic.iservice.ICommentsService;
-import com.wzmusic.mapper.CommentsMapper;
+import com.wzmusic.iservice.IMusicTypeService;
+import com.wzmusic.mapper.MusicTypeMapper;
 import com.wzmusic.utils.DBGetConnection;
 
 /**
- * 评论的 service
+ * 音乐类型服务
  * 
  * @author TongZhou
  *
  */
-public class CommentsService implements ICommentsService {
+public class MusicTypeService implements IMusicTypeService {
 
 	// 定义 SqlSession
 	private SqlSession session = null;
 
 	// 定义 Mapper 对象
-	private CommentsMapper commentsMapper = null;
+	private MusicTypeMapper musicTypeMapper = null;
 
 	/**
-	 * 查询管理员
+	 * 查询音乐类型
 	 */
 	@Override
-	public Comments queryComments(Comments comment) {
+	public MusicType queryMusicTypes(MusicType musicType) {
 		// 获取 SqlSession
 		session = DBGetConnection.getSqlSession();
 
 		// 加载 Mapper
-		commentsMapper = session.getMapper(CommentsMapper.class);
+		musicTypeMapper = session.getMapper(MusicTypeMapper.class);
 
 		// 调用方法
-		Comments result=commentsMapper.queryComments(comment);
+		MusicType result = musicTypeMapper.queryMusicTypes(musicType);
 
 		// 提交事务
 		session.commit();
@@ -47,61 +47,41 @@ public class CommentsService implements ICommentsService {
 	}
 
 	/**
-	 * 获取评论列表
+	 * 获取音乐类型列表
 	 */
 	@Override
-	public List<Comments> getComments() {
+	public List<MusicType> getMusicTypes() {
 		// 获取 SqlSession
 		session = DBGetConnection.getSqlSession();
 
 		// 加载 Mapper
-		commentsMapper = session.getMapper(CommentsMapper.class);
+		musicTypeMapper = session.getMapper(MusicTypeMapper.class);
 
 		// 调用方法
-		commentsMapper.getComments();
+		List<MusicType> result = musicTypeMapper.getMusicTypes();
 
 		// 提交事务
 		session.commit();
 		// 关闭资源
 		DBGetConnection.closeSqlSession(session);
-
-		return null;
+		
+		//返回结果
+		return result;
 	}
 
 	/**
-	 * 添加评论
+	 * 添加音乐类型
 	 */
 	@Override
-	public void addComment(Comments comment) {
+	public void addMusicType(MusicType musicType) {
 		// 获取 SqlSession
 		session = DBGetConnection.getSqlSession();
 
 		// 加载 Mapper
-		commentsMapper = session.getMapper(CommentsMapper.class);
+		musicTypeMapper = session.getMapper(MusicTypeMapper.class);
 
 		// 调用方法
-		commentsMapper.addComment(comment);
-
-		// 提交事务
-		session.commit();
-		// 关闭资源
-		DBGetConnection.closeSqlSession(session);
-
-	}
-
-	/**
-	 * 修改评论
-	 */
-	@Override
-	public void updateComment(Comments comment) {
-		// 获取 SqlSession
-		session = DBGetConnection.getSqlSession();
-
-		// 加载 Mapper
-		commentsMapper = session.getMapper(CommentsMapper.class);
-
-		// 调用方法
-		commentsMapper.updateComment(comment);
+		musicTypeMapper.addMusicType(musicType);
 
 		// 提交事务
 		session.commit();
@@ -111,18 +91,18 @@ public class CommentsService implements ICommentsService {
 	}
 
 	/**
-	 * 删除评论
+	 * 修改音乐类型
 	 */
 	@Override
-	public void delectComment(Comments comment) {
+	public void updateMusicType(MusicType musicType) {
 		// 获取 SqlSession
 		session = DBGetConnection.getSqlSession();
 
 		// 加载 Mapper
-		commentsMapper = session.getMapper(CommentsMapper.class);
+		musicTypeMapper = session.getMapper(MusicTypeMapper.class);
 
 		// 调用方法
-		commentsMapper.delectComment(comment);
+		musicTypeMapper.updateMusicType(musicType);
 
 		// 提交事务
 		session.commit();
@@ -132,24 +112,46 @@ public class CommentsService implements ICommentsService {
 	}
 
 	/**
-	 * 分页或显示
+	 * 删除音乐类型
 	 */
 	@Override
-	public List<Comments> getCommentPage(Page page) {
+	public void delectMusicType(MusicType musicType) {
 		// 获取 SqlSession
 		session = DBGetConnection.getSqlSession();
 
 		// 加载 Mapper
-		commentsMapper = session.getMapper(CommentsMapper.class);
+		musicTypeMapper = session.getMapper(MusicTypeMapper.class);
 
 		// 调用方法
-		List<Comments> result=commentsMapper.getCommentPage(page);
+		musicTypeMapper.delectMusicType(musicType);
 
 		// 提交事务
 		session.commit();
 		// 关闭资源
 		DBGetConnection.closeSqlSession(session);
 
+	}
+
+	/**
+	 * 分页获取分页音乐类型信息+
+	 */
+	@Override
+	public List<MusicType> getMusicTypePage(Page page) {
+		// 获取 SqlSession
+		session = DBGetConnection.getSqlSession();
+
+		// 加载 Mapper
+		musicTypeMapper = session.getMapper(MusicTypeMapper.class);
+
+		// 调用方法
+		List<MusicType> result = musicTypeMapper.getMusicTypePage(page);
+
+		// 提交事务
+		session.commit();
+		// 关闭资源
+		DBGetConnection.closeSqlSession(session);
+		
+		//返回结果
 		return result;
 	}
 

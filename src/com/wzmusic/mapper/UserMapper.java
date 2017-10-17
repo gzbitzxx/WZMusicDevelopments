@@ -38,7 +38,7 @@ public interface UserMapper {
      * @param user
      * @throws Exception
      */
-    public void updateUser(User user)throws Exception;
+    public void updateUser(User user);
     
     /**
      * 删除用户信息
