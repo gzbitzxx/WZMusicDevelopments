@@ -27,21 +27,21 @@ public interface MusicTypeMapper {
      * @param MusicType
      * @throws Exception
      */
-    public void addMusicType(MusicType MusicType);
+    public void addMusicType(MusicType MusicType) throws Exception;
     
     /**
      * 修改音乐类型
      * @param MusicType
      * @throws Exception
      */
-    public void updateMusicType(MusicType MusicType);
+    public void updateMusicType(MusicType MusicType) throws Exception;
     
     /**
      * 删除音乐类型
      * @param MusicType
      * @throws Exception
      */
-    public void delectMusicType(MusicType MusicType);
+    public void delectMusicType(MusicType MusicType) throws Exception;
     
     /**
      * 分页获取音乐来那谢谢

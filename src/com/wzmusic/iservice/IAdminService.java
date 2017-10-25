@@ -31,21 +31,21 @@ public interface IAdminService {
      * @param Admin 添加管理实体
      * @throws Exception
      */
-    public void addAdmin(Admin admin);
+    public boolean addAdmin(Admin admin);
     
     /**
      * 修改管理员
      * @param Admin 修改的管理员实体
      * @throws Exception
      */
-    public void updateAdmin(Admin admin);
+    public boolean updateAdmin(Admin admin);
     
     /**
      * 删除管理员
      * @param admin 管理员实体
      * @throws Exception
      */
-    public void delectAdmin(Admin admin);
+    public boolean delectAdmin(Admin admin);
     
     /**
      * 分页获取管理员

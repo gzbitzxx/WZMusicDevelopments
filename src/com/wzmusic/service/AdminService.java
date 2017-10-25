@@ -48,58 +48,95 @@ public class AdminService implements IAdminService {
 	}
 
 	@Override
-	public void addAdmin(Admin Admin) {
+	public boolean addAdmin(Admin Admin) {
+		
 		// 获取 SqlSession
 		session = DBGetConnection.getSqlSession();
 
 		// 加载 Mapper
 		adminMapper = session.getMapper(AdminMapper.class);
+		
+		// 返回结果
+		boolean result=false;
 
 		// 添加管理员
-		adminMapper.addAdmin(Admin);
+		try {
+			adminMapper.addAdmin(Admin);
+			result=true;
+		} catch (Exception e) {
+			e.printStackTrace();		}
 		
 		//提交事务
 		session.commit();
 		
 		// 关闭连接
 		DBGetConnection.closeSqlSession(session);
+		
+		return result;
 
 	}
 
 	@Override
-	public void updateAdmin(Admin admin) {
+	public boolean updateAdmin(Admin admin) {
 		// 获取 SqlSession
 		session = DBGetConnection.getSqlSession();
 
 		// 加载 Mapper
 		adminMapper = session.getMapper(AdminMapper.class);
 
+		// 返回结果
+				boolean result=false;
+		
 		// 添加管理员
-		adminMapper.updateAdmin(admin);
+		try {
+			adminMapper.updateAdmin(admin);
+			
+			result=true;
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
 
 		//提交事务
 		session.commit();
 		
 		// 关闭连接
 		DBGetConnection.closeSqlSession(session);
+		
+		return result;
 
 	}
 
 	@Override
-	public void delectAdmin(Admin admin) {
+	public boolean delectAdmin(Admin admin) {
 		// 获取 SqlSession
 		session = DBGetConnection.getSqlSession();
 
 		// 加载 Mapper
 		adminMapper = session.getMapper(AdminMapper.class);
+		
+		// 返回结果
+				boolean result=false;
 
 		// 删除管理员
-		adminMapper.delectAdmin(admin);
+		try {
+			adminMapper.delectAdmin(admin);
+			
+			result=true;
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
 		
 		//提交事务
 		session.commit();
+		
 		// 关闭连接
 		DBGetConnection.closeSqlSession(session);
+		
+		return result;
 
 	}
 
@@ -116,6 +153,7 @@ public class AdminService implements IAdminService {
 
 		// 关闭连接
 		DBGetConnection.closeSqlSession(session);
+		
 		return admins;
 	}
 

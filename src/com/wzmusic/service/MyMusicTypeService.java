@@ -77,7 +77,7 @@ public class MyMusicTypeService implements IMyMusicTypeService {
 	 * 添加我的音乐类型
 	 */
 	@Override
-	public void addMyMusicType(MyMusicType myMusicType) {
+	public boolean addMyMusicType(MyMusicType myMusicType) {
 		
 
 		// 获取 SqlSession
@@ -86,14 +86,27 @@ public class MyMusicTypeService implements IMyMusicTypeService {
 		// 加载 Mapper
 		myMusicTypeMapper = session.getMapper(MyMusicTypeMapper.class);
 
+		//返回结果
+				boolean result=false;
+		
 		// 调用方法
-		myMusicTypeMapper.addMyMusicType(myMusicType);
+		try {
+			myMusicTypeMapper.addMyMusicType(myMusicType);
+			
+			result=true;
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// 提交事务
 		session.commit();
 		
 		// 关闭资源
 		DBGetConnection.closeSqlSession(session);
+		
+		return result;
 
 
 	}
@@ -102,7 +115,7 @@ public class MyMusicTypeService implements IMyMusicTypeService {
 	 * 修改我的音乐类型
 	 */
 	@Override
-	public void updateMyMusicType(MyMusicType myMusicType) {
+	public boolean updateMyMusicType(MyMusicType myMusicType) {
 		
 
 		// 获取 SqlSession
@@ -111,14 +124,26 @@ public class MyMusicTypeService implements IMyMusicTypeService {
 		// 加载 Mapper
 		myMusicTypeMapper = session.getMapper(MyMusicTypeMapper.class);
 
+		//返回结果
+				boolean result=false;
+		
 		// 调用方法
-		myMusicTypeMapper.updateMyMusicType(myMusicType);
+		try {
+			myMusicTypeMapper.updateMyMusicType(myMusicType);
+			
+			result=true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// 提交事务
 		session.commit();
 		
 		// 关闭资源
 		DBGetConnection.closeSqlSession(session);
+		
+		return result;
 
 
 	}
@@ -127,7 +152,7 @@ public class MyMusicTypeService implements IMyMusicTypeService {
 	 * 删除我的音乐类型
 	 */
 	@Override
-	public void delectMyMusicType(MyMusicType myMusicType) {
+	public boolean delectMyMusicType(MyMusicType myMusicType) {
 		
 
 		// 获取 SqlSession
@@ -135,15 +160,27 @@ public class MyMusicTypeService implements IMyMusicTypeService {
 
 		// 加载 Mapper
 		myMusicTypeMapper = session.getMapper(MyMusicTypeMapper.class);
+		
+		//返回结果
+				boolean result=false;
 
 		// 调用方法
-		myMusicTypeMapper.delectMyMusicType(myMusicType);
+		try {
+			myMusicTypeMapper.delectMyMusicType(myMusicType);
+			
+			result=true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// 提交事务
 		session.commit();
 		
 		// 关闭资源
 		DBGetConnection.closeSqlSession(session);
+		
+		return result;
 
 
 	}

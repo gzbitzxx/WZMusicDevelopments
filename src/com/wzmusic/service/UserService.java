@@ -71,60 +71,95 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public void addUser(User user) {
+	public boolean addUser(User user) {
 
 		// 获取 SqlSession
 		session = DBGetConnection.getSqlSession();
 
 		// 加载Mapper
 		userMapper = session.getMapper(UserMapper.class);
+		
+		//返回结果
+				boolean result=false;
 
 		// 调用方法
-		userMapper.addUser(user);;
+		try {
+			userMapper.addUser(user);
+			
+			result=true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		};
 
 		// 提交事务
 		session.commit();
 
 		// 关闭资源
 		DBGetConnection.closeSqlSession(session);
+		
+		return result;
 	}
 
 	@Override
-	public void updateUser(User user) {
+	public boolean updateUser(User user) {
 
 		// 获取 SqlSession
 		session = DBGetConnection.getSqlSession();
 
 		// 加载Mapper
 		userMapper = session.getMapper(UserMapper.class);
+		
+		//返回结果
+		boolean result=false;
 
 		// 调用方法
-		userMapper.updateUser(user);
+		try {
+			userMapper.updateUser(user);
+			
+			result=true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		// 提交事务
 		session.commit();
 
 		// 关闭资源
 		DBGetConnection.closeSqlSession(session);
+		
+		return result;
 	}
 
 	@Override
-	public void delectUser(User user) {
+	public boolean delectUser(User user) {
 
 		// 获取 SqlSession
 		session = DBGetConnection.getSqlSession();
 
 		// 加载Mapper
 		userMapper = session.getMapper(UserMapper.class);
+		
+		//返回结果
+				boolean result=false;
 
 		// 调用方法
-		userMapper.delectUser(user);
+		try {
+			userMapper.delectUser(user);
+			
+			result=true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		// 提交事务
 		session.commit();
 
 		// 关闭资源
 		DBGetConnection.closeSqlSession(session);
+		
+		return result;
 	}
 
 	@Override

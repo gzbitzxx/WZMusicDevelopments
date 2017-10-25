@@ -82,7 +82,8 @@ public class AdminService_Tests{
 		admin.setAccoutNumber("Hello1111");
 		admin.setPassword("1244255");
 		admin.setLoginIP("127.2.2.2");
-		adminService.updateAdmin(admin);
+		System.out.println(adminService.updateAdmin(admin));
+		
 		
 	}
 
@@ -92,8 +93,8 @@ public class AdminService_Tests{
 	@Test
 	public void delectAdmin_test() {
 		Admin admin=new Admin();
-		admin.setId(17);
-		adminService.delectAdmin(admin);
+		admin.setId(12);
+		System.out.println(adminService.delectAdmin(admin));
 		
 	}
 

@@ -73,20 +73,33 @@ public class MusicTypeService implements IMusicTypeService {
 	 * 添加音乐类型
 	 */
 	@Override
-	public void addMusicType(MusicType musicType) {
+	public boolean addMusicType(MusicType musicType) {
 		// 获取 SqlSession
 		session = DBGetConnection.getSqlSession();
 
 		// 加载 Mapper
 		musicTypeMapper = session.getMapper(MusicTypeMapper.class);
 
+		//返回结果
+				boolean result=false;
+		
 		// 调用方法
-		musicTypeMapper.addMusicType(musicType);
+		try {
+			musicTypeMapper.addMusicType(musicType);
+			
+			result=true;
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// 提交事务
 		session.commit();
 		// 关闭资源
 		DBGetConnection.closeSqlSession(session);
+		
+		return result;
 
 	}
 
@@ -94,20 +107,33 @@ public class MusicTypeService implements IMusicTypeService {
 	 * 修改音乐类型
 	 */
 	@Override
-	public void updateMusicType(MusicType musicType) {
+	public boolean updateMusicType(MusicType musicType) {
 		// 获取 SqlSession
 		session = DBGetConnection.getSqlSession();
 
 		// 加载 Mapper
 		musicTypeMapper = session.getMapper(MusicTypeMapper.class);
 
+		//返回结果
+				boolean result=false;
+		
 		// 调用方法
-		musicTypeMapper.updateMusicType(musicType);
+		try {
+			musicTypeMapper.updateMusicType(musicType);
+			
+			result=true;
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// 提交事务
 		session.commit();
 		// 关闭资源
 		DBGetConnection.closeSqlSession(session);
+		
+		return result;
 
 	}
 
@@ -115,20 +141,32 @@ public class MusicTypeService implements IMusicTypeService {
 	 * 删除音乐类型
 	 */
 	@Override
-	public void delectMusicType(MusicType musicType) {
+	public boolean delectMusicType(MusicType musicType) {
 		// 获取 SqlSession
 		session = DBGetConnection.getSqlSession();
 
 		// 加载 Mapper
 		musicTypeMapper = session.getMapper(MusicTypeMapper.class);
 
+		//返回结果
+				boolean result=false;
+		
 		// 调用方法
-		musicTypeMapper.delectMusicType(musicType);
+		try {
+			musicTypeMapper.delectMusicType(musicType);
+			
+			result=true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// 提交事务
 		session.commit();
 		// 关闭资源
 		DBGetConnection.closeSqlSession(session);
+		
+		return result;
 
 	}
 

@@ -32,21 +32,21 @@ public interface CommentsMapper {
      * @param Comment 评论实体
      * @throws Exception
      */
-    public void addComment(Comments Comment);
+    public void addComment(Comments Comment) throws Exception;
     
     /**
      * 修改评论
      * @param Comment 评论实体
      * @throws Exception
      */
-    public void updateComment(Comments Comment);
+    public void updateComment(Comments Comment)  throws Exception;
     
     /**
      * 删除评论
      * @param Comment 评论实体类
      * @throws Exception
      */
-    public void delectComment(Comments Comment);
+    public void delectComment(Comments Comment)  throws Exception;
     
     /**
      * 分页获取评论信息

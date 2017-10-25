@@ -7,7 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 import com.wzmusic.bean.Article;
 import com.wzmusic.bean.Page;
 import com.wzmusic.iservice.IArticleService;
-import com.wzmusic.mapper.AdminMapper;
 import com.wzmusic.mapper.ArticleMapper;
 import com.wzmusic.utils.DBGetConnection;
 
@@ -72,15 +71,26 @@ public class ArtcleService implements IArticleService {
 	 * 添加文章
 	 */
 	@Override
-	public void addArticle(Article article) {
+	public boolean addArticle(Article article) {
 		// 获取 SqlSession
 		session = DBGetConnection.getSqlSession();
 
 		// 加载 Mapper 类
 		articleMapper = session.getMapper(ArticleMapper.class);
+		
+		//返回结果
+		boolean result=false;
 
 		// 调用添加方法
-		articleMapper.addArticle(article);
+		try {
+			articleMapper.addArticle(article);
+			
+			result=true;
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// 提交事务
 		session.commit();
@@ -88,49 +98,73 @@ public class ArtcleService implements IArticleService {
 		// 关闭 资源
 		DBGetConnection.closeSqlSession(session);
 
+		return result;
 	}
 
 	/**
 	 * 修改文章
 	 */
 	@Override
-	public void updateArticle(Article article) {
+	public boolean updateArticle(Article article) {
 		// 获取 SqlSession
 		session = DBGetConnection.getSqlSession();
 
 		// 加载 Mapper 类
 		articleMapper = session.getMapper(ArticleMapper.class);
+		
+		boolean result=false;
 
 		// 调用修改方法
-		articleMapper.updateArticle(article);
+		try {
+			articleMapper.updateArticle(article);
+			
+			result=true;
+					
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// 提交事务
 		session.commit();
 
 		// 关闭 资源
 		DBGetConnection.closeSqlSession(session);
-
+		
+		return result;
 	}
 
 	/**
 	 * 删除文章
 	 */
 	@Override
-	public void delectArticle(Article article) {
+	public boolean delectArticle(Article article) {
 		// 获取 SqlSession
 		session = DBGetConnection.getSqlSession();
 
 		// 加载 Mapper 类
 		articleMapper = session.getMapper(ArticleMapper.class);
 
+		//返回结果
+		boolean result=false;
+		
 		// 调用删除方法
-		articleMapper.delectArticle(article);
+		try {
+			articleMapper.delectArticle(article);
+			
+			result=true;
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// 提交事务
 		session.commit();
 		// 关闭 资源
 		DBGetConnection.closeSqlSession(session);
-
+		
+		return result;
 	}
 
 	/**

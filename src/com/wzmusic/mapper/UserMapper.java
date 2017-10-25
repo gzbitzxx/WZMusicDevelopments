@@ -31,21 +31,21 @@ public interface UserMapper {
      * @param user
      * @throws Exception
      */
-    public void addUser(User user);
+    public void addUser(User user)  throws Exception;
     
     /**
      * 修改用户信息
      * @param user
      * @throws Exception
      */
-    public void updateUser(User user);
+    public void updateUser(User user) throws Exception;
     
     /**
      * 删除用户信息
      * @param user
      * @throws Exception
      */
-    public void delectUser(User user);
+    public void delectUser(User user) throws Exception;
     
     /**
      * 分页获取用户

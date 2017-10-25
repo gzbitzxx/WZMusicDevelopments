@@ -72,62 +72,99 @@ public class CommentsService implements ICommentsService {
 	 * 添加评论
 	 */
 	@Override
-	public void addComment(Comments comment) {
+	public boolean addComment(Comments comment) {
 		// 获取 SqlSession
 		session = DBGetConnection.getSqlSession();
 
 		// 加载 Mapper
 		commentsMapper = session.getMapper(CommentsMapper.class);
+		
+		// 返回结果
+		boolean result=false;
 
 		// 调用方法
-		commentsMapper.addComment(comment);
+		try {
+			commentsMapper.addComment(comment);
+			
+			result=true;
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// 提交事务
 		session.commit();
 		// 关闭资源
 		DBGetConnection.closeSqlSession(session);
-
+		
+		return result;
 	}
 
 	/**
 	 * 修改评论
 	 */
 	@Override
-	public void updateComment(Comments comment) {
+	public boolean updateComment(Comments comment) {
 		// 获取 SqlSession
 		session = DBGetConnection.getSqlSession();
 
 		// 加载 Mapper
 		commentsMapper = session.getMapper(CommentsMapper.class);
 
+		// 返回结果
+				boolean result=false;
+				
 		// 调用方法
-		commentsMapper.updateComment(comment);
+		try {
+			commentsMapper.updateComment(comment);
+			
+			result=true;
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// 提交事务
 		session.commit();
 		// 关闭资源
 		DBGetConnection.closeSqlSession(session);
-
+		
+		return result;
 	}
 
 	/**
 	 * 删除评论
 	 */
 	@Override
-	public void delectComment(Comments comment) {
+	public boolean delectComment(Comments comment) {
 		// 获取 SqlSession
 		session = DBGetConnection.getSqlSession();
 
 		// 加载 Mapper
 		commentsMapper = session.getMapper(CommentsMapper.class);
 
+		// 返回结果
+				boolean result=false;
+		
 		// 调用方法
-		commentsMapper.delectComment(comment);
+		try {
+			commentsMapper.delectComment(comment);
+			
+			result=true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		// 提交事务
 		session.commit();
+		
 		// 关闭资源
 		DBGetConnection.closeSqlSession(session);
+		
+		return result;
 
 	}
 
@@ -147,6 +184,7 @@ public class CommentsService implements ICommentsService {
 
 		// 提交事务
 		session.commit();
+		
 		// 关闭资源
 		DBGetConnection.closeSqlSession(session);
 

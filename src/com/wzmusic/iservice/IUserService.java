@@ -31,21 +31,21 @@ public interface IUserService {
      * @param user
      * @throws Exception
      */
-    public void addUser(User user);
+    public boolean addUser(User user);
     
     /**
      * 修改用户信息
      * @param user
      * @throws Exception
      */
-    public void updateUser(User user);
+    public boolean updateUser(User user);
     
     /**
      * 删除用户信息
      * @param user
      * @throws Exception
      */
-    public void delectUser(User user);
+    public boolean delectUser(User user);
     
     /**
      * 分页获取用户

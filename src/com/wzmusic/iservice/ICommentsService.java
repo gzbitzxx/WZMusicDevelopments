@@ -32,21 +32,21 @@ public interface ICommentsService {
      * @param Comment 评论实体
      * @throws Exception
      */
-    public void addComment(Comments comment);
+    public boolean addComment(Comments comment);
     
     /**
      * 修改评论
      * @param Comment 评论实体
      * @throws Exception
      */
-    public void updateComment(Comments comment);
+    public boolean updateComment(Comments comment);
     
     /**
      * 删除评论
      * @param Comment 评论实体类
      * @throws Exception
      */
-    public void delectComment(Comments comment);
+    public boolean delectComment(Comments comment);
     
     /**
      * 分页获取评论信息

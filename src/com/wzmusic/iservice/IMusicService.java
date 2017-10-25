@@ -32,21 +32,21 @@ public interface IMusicService {
      * @param Music
      * @throws Exception
      */
-    public void addMusic(Music music);
+    public boolean addMusic(Music music);
     
     /**
      * 修改音乐
      * @param Music
      * @throws Exception
      */
-    public void updateMusic(Music music);
+    public boolean updateMusic(Music music);
     
     /**
      * 删除音乐
      * @param Music
      * @throws Exception
      */
-    public void delectMusic(Music music);
+    public boolean delectMusic(Music music);
     
     /**
      * 分页获取音乐

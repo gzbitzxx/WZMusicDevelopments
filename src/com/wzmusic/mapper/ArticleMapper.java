@@ -32,21 +32,21 @@ public interface ArticleMapper {
 	 * @param Article 添加的文章实体
 	 * @throws Exception
 	 */
-	public void addArticle(Article Article);
+	public void addArticle(Article Article) throws Exception;
 
 	/**
 	 * 修改文章实体
 	 * @param Article 文章实体类
 	 * @throws Exception
 	 */
-	public void updateArticle(Article Article);
+	public void updateArticle(Article Article)  throws Exception;
 
 	/**
 	 * 删除文章
 	 * @param Article 文章实体
 	 * @throws Exception
 	 */
-	public void delectArticle(Article Article);
+	public void delectArticle(Article Article) throws Exception;
 
 	/**
 	 * 分页获取文章

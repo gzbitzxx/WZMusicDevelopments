@@ -32,21 +32,21 @@ public interface IArticleService {
 	 * @param Article 添加的文章实体
 	 * @throws Exception
 	 */
-	public void addArticle(Article article);
+	public boolean addArticle(Article article);
 
 	/**
 	 * 修改文章实体
 	 * @param Article 文章实体类
 	 * @throws Exception
 	 */
-	public void updateArticle(Article article);
+	public boolean updateArticle(Article article);
 
 	/**
 	 * 删除文章
 	 * @param Article 文章实体
 	 * @throws Exception
 	 */
-	public void delectArticle(Article article);
+	public boolean delectArticle(Article article);
 
 	/**
 	 * 分页获取文章

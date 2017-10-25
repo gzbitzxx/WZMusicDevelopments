@@ -32,21 +32,21 @@ public interface MusicMapper {
      * @param Music
      * @throws Exception
      */
-    public void addMusic(Music Music);
+    public void addMusic(Music Music)  throws Exception;
     
     /**
      * 修改音乐
      * @param Music
      * @throws Exception
      */
-    public void updateMusic(Music Music)throws Exception;
+    public void updateMusic(Music Music)  throws Exception;
     
     /**
      * 删除音乐
      * @param Music
      * @throws Exception
      */
-    public void delectMusic(Music Music);
+    public void delectMusic(Music Music)  throws Exception;
     
     /**
      * 分页获取音乐

@@ -31,21 +31,21 @@ public interface IMusicTypeService {
      * @param MusicType
      * @throws Exception
      */
-    public void addMusicType(MusicType musicType);
+    public boolean addMusicType(MusicType musicType);
     
     /**
      * 修改音乐类型
      * @param MusicType
      * @throws Exception
      */
-    public void updateMusicType(MusicType musicType);
+    public boolean updateMusicType(MusicType musicType);
     
     /**
      * 删除音乐类型
      * @param MusicType
      * @throws Exception
      */
-    public void delectMusicType(MusicType musicType);
+    public boolean delectMusicType(MusicType musicType);
     
     /**
      * 分页获取音乐来那谢谢

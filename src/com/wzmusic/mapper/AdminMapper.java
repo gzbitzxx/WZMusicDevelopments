@@ -31,21 +31,21 @@ public interface AdminMapper{
      * @param Admin 添加管理实体
      * @throws Exception
      */
-    public void addAdmin(Admin Admin);
+    public void addAdmin(Admin Admin)  throws Exception;
     
     /**
      * 修改管理员
      * @param Admin 修改的管理员实体
      * @throws Exception
      */
-    public void updateAdmin(Admin Admin);
+    public void updateAdmin(Admin Admin)  throws Exception;
     
     /**
      * 删除管理员
      * @param admin 管理员实体
      * @throws Exception
      */
-    public void delectAdmin(Admin admin);
+    public void delectAdmin(Admin admin) throws Exception;
     
     /**
      * 分页获取管理员

@@ -31,21 +31,21 @@ public interface MyMusicTypeMapper {
      * @param MyMusicType
      * @throws Exception
      */
-    public void addMyMusicType(MyMusicType MyMusicType);
+    public void addMyMusicType(MyMusicType MyMusicType) throws Exception;
     
     /**
      * 修改我的音乐类型
      * @param MyMusicType
      * @throws Exception
      */
-    public void updateMyMusicType(MyMusicType MyMusicType);
+    public void updateMyMusicType(MyMusicType MyMusicType) throws Exception;
     
     /**
      * 删除我的音乐类型
      * @param MyMusicType
      * @throws Exception
      */
-    public void delectMyMusicType(MyMusicType MyMusicType);
+    public void delectMyMusicType(MyMusicType MyMusicType) throws Exception;
     
     /**
      * 获取我的音乐类型

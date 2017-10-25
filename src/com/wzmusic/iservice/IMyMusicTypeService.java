@@ -31,21 +31,21 @@ public interface IMyMusicTypeService {
      * @param MyMusicType
      * @throws Exception
      */
-    public void addMyMusicType(MyMusicType myMusicType);
+    public boolean addMyMusicType(MyMusicType myMusicType);
     
     /**
      * 修改我的音乐类型
      * @param MyMusicType
      * @throws Exception
      */
-    public void updateMyMusicType(MyMusicType myMusicType);
+    public boolean updateMyMusicType(MyMusicType myMusicType);
     
     /**
      * 删除我的音乐类型
      * @param MyMusicType
      * @throws Exception
      */
-    public void delectMyMusicType(MyMusicType myMusicType);
+    public boolean delectMyMusicType(MyMusicType myMusicType);
     
     /**
      * 获取我的音乐类型
