@@ -62,6 +62,7 @@ public class MusicTypeService implements IMusicTypeService {
 
 		// 提交事务
 		session.commit();
+		
 		// 关闭资源
 		DBGetConnection.closeSqlSession(session);
 		

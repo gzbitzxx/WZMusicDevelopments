@@ -86,6 +86,9 @@ public class MusicService implements IMusicService {
 		// 调用 add 方法
 		try {
 			musicMapper.addMusic(music);
+			
+			result=true;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -117,7 +120,9 @@ public class MusicService implements IMusicService {
 		// 调用修改方法
 		try {
 			musicMapper.updateMusic(music);
+			
 			result =true;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

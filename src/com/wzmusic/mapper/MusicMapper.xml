@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wzmusic.mapper.MusicMapper">
-	<select id="queryMusics" parameterType="MusicDto" resultMap="MusicDtoResultMap"
+	<select id="queryMusics" parameterType="Music" resultMap="MusicResultMap"
 		useCache="false">
 	    <![CDATA[
 		select * from music t where t.id = #{id}
 		]]>
 	</select>
 	
-	<resultMap type="com.wz.dto.MusicDto" id="MusicDtoResultMap">
+	<resultMap type="Music" id="MusicResultMap">
 		<id property="id" column="id" />
-		<result property="singer" column="singer" />
-		<result property="musicName" column="musicName" />
+		<result property="artist" column="artist" />
+		<result property="songName" column="songName" />
 		<result property="path" column="path" />
-		<association property="mucicTypeDto" javaType="com.wz.dto.MusicTypeDto">
+		<result property="album" column="album" />
+		<result property="length" column="length" />
+		<association property="mucicType" javaType="MusicType">
 			<id property="id" column="musicTypeID"/>
 			<result property="typeName" column="typeName" />
 			<result property="orderNumber" column="orderNumber" />
 		</association>
 	</resultMap>
 	
-	<select id="getMusics" parameterType="MusicDto" resultMap="MusicDtoResultMap"
+	<select id="getMusics" parameterType="Music" resultMap="MusicResultMap"
 		useCache="false">
 	    <![CDATA[
 		select * from music t,musictype mt where mt.id=t.musicTypeID
@@ -28,27 +30,27 @@
 	</select>
 	
 		<!-- 分页 -->
-	<select id="getMusicsPage" parameterType="com.wz.dto.Page" resultMap="MusicDtoResultMap"
+	<select id="getMusicsPage" parameterType="Page" resultMap="MusicResultMap"
 		useCache="false">
 	    <![CDATA[
 		select * from music t,musictype mt where mt.id=t.musicTypeID limit #{currentPage},#{pageSize}
 		]]>
 	</select>
 	
-	<insert id="addMusic" parameterType="MusicDto" useGeneratedKeys="true" keyProperty="id">
+	<insert id="addMusic" parameterType="Music" useGeneratedKeys="true" keyProperty="id">
 		<![CDATA[
-			INSERT INTO music(id,musicTypeID,singer,musicName,path) 
+			INSERT INTO music(musicTypeID,artist,songName,path,album,length) 
 			VALUES
-			(#{id},#{mucicTypeDto.id},#{singer},#{musicName},#{path})
+			(#{mucicType.id},#{artist},#{songName},#{path},#{album},#{length})
 		]]>
 	</insert>
 	
-	<update id="updateMusic" parameterType="MusicDto" >
-		update music set musicTypeID=#{mucicTypeDto.id},
-		singer=#{singer},musicName=#{musicName} ,path=#{path} where id=#{id}
+	<update id="updateMusic" parameterType="Music" >
+		update music set musicTypeID=#{mucicType.id},
+		artist=#{artist},songName=#{songName} ,path=#{path},album=#{album},length=#{length} where id=#{id}
 	</update>
 	
-	<delete id="delectMusic" parameterType="MusicDto">
+	<delete id="delectMusic" parameterType="Music">
 		delete from music where id=#{id} 
 	</delete>
 </mapper>

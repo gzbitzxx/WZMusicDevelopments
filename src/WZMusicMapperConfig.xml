@@ -42,12 +42,12 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 		<mapper resource="com/wzmusic/mapper/AdminMapper.xml"/>
 		<mapper resource="com/wzmusic/mapper/ArticleMapper.xml"/>
-		<!-- <mapper resource="com/wzmusic/mapper/CommentsMapper.xml"/>
+		<mapper resource="com/wzmusic/mapper/CommentsMapper.xml"/>
 		<mapper resource="com/wzmusic/mapper/MusicMapper.xml"/>
 		<mapper resource="com/wzmusic/mapper/MusicTypeMapper.xml"/>
 		<mapper resource="com/wzmusic/mapper/MyMusicTypeMapper.xml"/>
 		<mapper resource="com/wzmusic/mapper/UserMapper.xml"/>
-		-->
+		
 	</mappers>
 	
 	

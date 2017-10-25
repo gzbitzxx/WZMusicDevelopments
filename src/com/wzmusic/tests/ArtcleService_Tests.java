@@ -25,7 +25,7 @@ public class ArtcleService_Tests {
 	@Test
 	public void queryArticles() {
 		Article article=new Article();
-		article.setId(49);
+		article.setId(13);
 		artcleService.queryArticles(article);
 		
 	}

@@ -2,18 +2,11 @@ package com.wzmusic.tests;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.List;
-
-import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
 import com.wzmusic.bean.Admin;
 import com.wzmusic.bean.Page;
-import com.wzmusic.iservice.IAdminService;
-import com.wzmusic.iservice.IArticleService;
-import com.wzmusic.mapper.AdminMapper;
 import com.wzmusic.service.AdminService;
-import com.wzmusic.utils.DBGetConnection;
 
 /**
  * 这是 Admin 的测试类

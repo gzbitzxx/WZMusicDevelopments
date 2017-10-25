@@ -1,20 +1,26 @@
 package com.wzmusic.bean;
 
-public class Music{
+public class Music {
 
 	// 音乐编号
 	private int id;
 
-	// 歌手名字
-	private String singer;
+	// 音乐姓名
+	private String SongName;
 
-	// 音乐名称
-	private String musicName;
-	
-	//音乐路径
+	// 作家
+	private String Artist;
+
+	// 专辑
+	private String Album;
+
+	// 时长
+	private String length;
+
+	// 音乐路径
 	private String path;
-	
-	//音乐类型
+
+	// 音乐类型
 	private MusicType mucicType;
 
 	public MusicType getMucicType() {
@@ -41,29 +47,44 @@ public class Music{
 		this.id = id;
 	}
 
-	
-
-	public String getSinger() {
-		return singer;
+	public String getSongName() {
+		return SongName;
 	}
 
-	public void setSinger(String singer) {
-		this.singer = singer;
+	public void setSongName(String songName) {
+		SongName = songName;
 	}
 
-	public String getMusicName() {
-		return musicName;
+	public String getArtist() {
+		return Artist;
 	}
 
-	public void setMusicName(String musicName) {
-		this.musicName = musicName;
+	public void setArtist(String artist) {
+		Artist = artist;
+	}
+
+	public String getAlbum() {
+		return Album;
+	}
+
+	public void setAlbum(String album) {
+		Album = album;
+	}
+
+	public String getLength() {
+		return length;
+	}
+
+	public void setLength(String length) {
+		this.length = length;
 	}
 
 	@Override
 	public String toString() {
-		return "Music [id=" + id + ", singer=" + singer + ", musicName=" + musicName + ", path=" + path + ", mucicType="
-				+ mucicType + "]";
+		return "Music [id=" + id + ", SongName=" + SongName + ", Artist=" + Artist + ", Album=" + Album + ", length="
+				+ length + ", path=" + path + ", mucicType=" + mucicType + "]";
 	}
 
 	
+
 }
